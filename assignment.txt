@@ -10,8 +10,8 @@ Assignment:
 
 $client
 	->accounts[2]
-	->deposit(1000)
-	->withdraw(500)
-	->transfer(200, $xacc)
-	->balance()
-	->transactions();
+	->deposit(1000)    // make a deposit of 1000 to client's account #2
+	->withdraw(500)    // withdrawf 500 from client's account #2
+	->transfer(200, $xacc)  // transfer 200  from client's account #2 to account $xacc
+	->balance()   // print balance of client's account #2 (should be 300)
+	->transactions(); // display list of transactions of client's account #2 (3 transactions)
