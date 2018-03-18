@@ -1,0 +1,17 @@
+Assignment:
+
+* Account balance
+* Transactions:
+	Deposit
+	Withdraw
+	Transfer
+* List of transactions
+* Balance of account
+
+$client
+	->accounts[2]
+	->deposit(1000)
+	->withdraw(500)
+	->transfer(200, $xacc)
+	->balance()
+	->transactions();
