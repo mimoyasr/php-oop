@@ -9,6 +9,7 @@
 		public	$dob,
 				$phone,
 				$address;
+		public	$accounts = [];
 		
 		/**
 		 *  @brief Retrieve client full name
@@ -34,6 +35,19 @@
 			if(!$match) AppError::add_error('Invalid name');
 			
 			return $match;
+		}
+		
+		public function add_account($account_number, $type = 'current'){
+			switch($type){
+				case 'savings':
+					$new_acc = new SavingsAccount($account_number);
+					break;
+				default:
+					$new_acc = new CurrentAccount($account_number);
+			}
+			
+			$this->accounts[] = $new_acc;
+			return $new_acc;
 		}
 	}
 	
