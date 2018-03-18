@@ -5,8 +5,7 @@
 	 
 	class Client {
 		private	$first_name = '',
-				$last_name = '',
-				$errors = [];
+				$last_name = '';
 		public	$dob,
 				$phone,
 				$address;
@@ -27,24 +26,12 @@
 			if($this->_validate_name($lname))
 				$this->last_name = $lname;
 
-			if(count($this->errors)) $this->show_errors();
-		}
-		
-		private function _add_error($error){
-			$this->errors[] = $error;
-		}
-		
-		public function show_errors(){
-			echo "<ul>";
-			foreach($this->errors as $e){
-				echo "<li class=\"text-danger\">{$e}</li>";
-			}
-			echo "</ul>";
+			if(AppError::exist()) AppError::show_errors();
 		}
 		
 		private function _validate_name($name){
 			$match = preg_match('/^[a-z][a-z \']*$/i', $name);
-			if(!$match) $this->_add_error('Invalid name');
+			if(!$match) AppError::add_error('Invalid name');
 			
 			return $match;
 		}

@@ -1,5 +1,6 @@
 <?php
 	include('./Client.php');
+	include('./AppError.php');
 	
 	$client = new Client('Ahm6ed', 'Saeed');
 	
