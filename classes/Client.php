@@ -37,13 +37,13 @@
 			return $match;
 		}
 		
-		public function add_account($account_number, $type = 'current'){
+		public function add_account($account_number, $balance, $type = 'current'){
 			switch($type){
 				case 'savings':
-					$new_acc = new SavingsAccount($account_number);
+					$new_acc = new SavingsAccount($account_number , $balance);
 					break;
 				default:
-					$new_acc = new CurrentAccount($account_number);
+					$new_acc = new CurrentAccount($account_number, $balance);
 			}
 			
 			$this->accounts[] = $new_acc;

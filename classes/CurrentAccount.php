@@ -2,8 +2,8 @@
 	class CurrentAccount extends Account {
 		private $has_checks = false;
 		
-		public function __construct($account_number){
-			parent::__construct($account_number);
+		public function __construct($account_number, $balance){
+			parent::__construct($account_number, $balance);
 			
 		}
 		
